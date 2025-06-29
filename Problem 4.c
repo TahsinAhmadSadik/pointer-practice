@@ -103,31 +103,26 @@ int main()
     //Free Memory
     for(int i=0; i<N; i++)
     {
-        for(int j=0; j<i+1; j++) free(*(*(a+i)+j));
+        for(int j=0; j<i+1; j++)
+        {
+            free(*(*(a+i)+j));
+            free(*(*(b+i)+j));
+            free(*(*(c+i)+j));
+            free(*(*(d+i)+j));
+        }
         free(*(a+i));
-    }
-    free(a);
-    for(int i=0; i<N; i++)
-    {
-        for(int j=0; j<i+1; j++) free(*(*(b+i)+j));
         free(*(b+i));
-    }
-    free(b);
-    for(int i=0; i<N; i++)
-    {
-        for(int j=0; j<i+1; j++) free(*(*(c+i)+j));
         free(*(c+i));
-    }
-    free(c);
-    for(int i=0; i<N; i++)
-    {
-        for(int j=0; j<i+1; j++) free(*(*(d+i)+j));
         free(*(d+i));
     }
+    free(a);
+    free(b);
+    free(c);
     free(d);
+
     for(int i=0; i<N; i++)
     {
-        for(int j=0; j<1; j++) free(*(*(e+i)+j));
+        free(**(e+i));
         free(*(e+i));
     }
     free(e);
